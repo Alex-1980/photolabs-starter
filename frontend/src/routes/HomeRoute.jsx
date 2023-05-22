@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import '../styles/HomeRoute.scss';
 import TopNavigation from '../components/TopNavigationBar';
 import PhotoList from '../components/PhotoList';
-import topics from '../mocks/topics.json'
+
 
 const HomeRoute = (props) => {
   // const [favicon, setFavicon] = useState({});
@@ -28,13 +28,14 @@ const HomeRoute = (props) => {
 
   return (
     <div className="home-route">
-      <TopNavigation topics={topics} conutFavicon={props.conutFavicon} />
+      <TopNavigation topics={props.topics} conutFavicon={props.conutFavicon} />
       <PhotoList 
-        photos={props.photos} 
-        favicon={props.favicon} 
-        handleFavicon={props.handleFavicon} 
-        handleCountFavicon={props.handleCountFavicon} 
-        handleModal={props.handleModal} />
+        photos={props.photos}
+        favicon={props.favicon}
+        handleFavicon={props.handleFavicon}
+        handleCountFavicon={props.handleCountFavicon}
+        handleModal={props.handleModal}
+      />
     </div>
   )
 }

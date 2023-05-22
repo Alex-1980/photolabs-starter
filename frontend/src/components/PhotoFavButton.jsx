@@ -7,7 +7,9 @@ import '../styles/PhotoFavButton.scss';
 function PhotoFavButton(props) {
   return (
     <div className="photo-list--fav-icon">
-      <div className="photo-list--fav-icon-svg" onClick={() => {props.handleFavicon(); props.handleCountFavicon();}}>
+      <div
+        className="photo-list--fav-icon-svg"
+        onClick={() => {props.handleFavicon(); props.handleCountFavicon();}}>
         {props.favicon ? <FavBadge /> : <FavIcon />}
       </div>
     </div>

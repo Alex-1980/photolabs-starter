@@ -5,9 +5,6 @@ import TopicList from './TopicList';
 import FavBadge from './FavBadge';
 
 const TopNavigation = (props) => {
-  // const faviconArray = Object.values(props.favicon)
-  // const isFavPhotoExist = faviconArray.some((val) => Boolean(val))
-  
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar--logo">PhotoLabs</span>
