@@ -15,10 +15,10 @@ export function FavIcon({
 }
 
 FavIcon.defaultProps = {
-  width: 20,
-  height: 17,
+  width: 40,
+  height: 40,
   fill: '#EEEEEE',
-  outlineWidth: 2,
+  outlineWidth: 1,
   stroke: '#C80000',
 }
 

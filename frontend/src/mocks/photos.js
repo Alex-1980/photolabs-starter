@@ -275,4 +275,4 @@ const mockPhotos = [
   }
 ]
 
-export default photos;
+export default mockPhotos;
