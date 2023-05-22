@@ -6,7 +6,7 @@ import '../styles/FavBadge.scss';
 export const FavBadge = ({ isFavPhotoExist }) => {
   return (
     <div className='fav-badge'>
-      <FavIcon width={20} height={30} fill="#C80000" displayAlert={!!isFavPhotoExist}/>
+      <FavIcon width={35} height={35} fill="#C80000" displayAlert={!!isFavPhotoExist}/>
     </div>
   ) 
 };

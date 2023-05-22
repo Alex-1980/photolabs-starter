@@ -2,30 +2,13 @@ import React from 'react';
 
 import '../styles/PhotoDetailsModal.scss'
 import PhotoFavButton from '../components/PhotoFavButton';
+import PhotoList from '../components/PhotoList';
 
 export const PhotoDetailsModal = (props) => {
-  console.log(props)
-  const {modalData} = props
-  
-  const simPhotosArray = Object.values(modalData.similar_photos);
-  const simPhotos = simPhotosArray.map((photo) => {
-    return (<div className='photo-details-modal--images' key={photo.id}>
-      <PhotoFavButton />
-      <img className='modal-similar--image' key={photo.id} src={photo.urls.regular} />
-      <div className='user-info'>
-        <img className='photo-list--user-profile' src={photo.user.profile}/>
-        <div className='photo-list--user-details'>
-          <div className='photo-list--user-info'>
-            {photo.user.username}
-          </div>
-          <div className='photo-list--user-location'>
-            {photo.location.city}, {photo.location.country}
-          </div>
-        </div>
-      </div>
-    </div>
-    ) 
-  })
+  // console.log(props)
+  const {handleModal, photos, photoID, favicon, handleFavicon, handleCountFavicon } = props
+
+  const details = photos.find(el => el.id === photoID)
 
   return (
     <div className='photo-details-modal'>
@@ -44,23 +27,34 @@ export const PhotoDetailsModal = (props) => {
       </button>
       <div className='modal-main'>
         <div className='modal-image'>
-          <PhotoFavButton handleFavicon={() => modalData.handleFavicon(modalData.id)} />
-          <img className='photo-details-modal--image' src={modalData.imageSource} />
+
+          <PhotoFavButton
+            favicon={favicon[photoID]} 
+            handleFavicon={() => handleFavicon(photoID)} 
+            handleCountFavicon={() => handleCountFavicon(favicon[photoID])}
+          />
+
+          <img className='photo-details-modal--image' src={details.urls.regular} />
           <div className='user-info'>
-            <img className='photo-list--user-profile' src={modalData.userImage}/>
+            <img className='photo-list--user-profile' src={details.user.name}/>
             <div className='photo-list--user-details'>
               <div className='photo-list--user-info'>
-                {modalData.userName}
+                {details.user.username}
               </div>
               <div className='photo-list--user-location'>
-                {modalData.city}, {modalData.country}
+                {details.location.city}, {details.location.country}
               </div>
             </div>
           </div>
         </div>
         <div className='modal-similar--images'>
           <p className='photo-details-modal--header'>Related Photos</p>
-          {simPhotos}
+          <PhotoList 
+           photos={photos}  
+           favicon={favicon}
+           handleFavicon={handleFavicon}
+           handleCountFavicon={handleCountFavicon}
+           />
         </div>
       </div>
     </div>

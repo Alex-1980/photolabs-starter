@@ -3,12 +3,14 @@ import React, { useState } from 'react';
 import HomeRoute from './routes/HomeRoute';
 import PhotoDetailsModal from './routes/PhotoDetailsModal'
 
+import photos from './mocks/photos.json'
+
 // Note: Rendering a single component to build components in isolation
 const App = () => {
   const [favicon, setFavicon] = useState({});
   const [conutFavicon, setCountFavicon] = useState(0);
   const [modal, setModal] = useState(false);
-  const [modalData, setModalData] = useState(false);
+  const [modalPhotoID, setModalPhotoID] = useState(null);
 
   const handleFavicon = (id) => {
     if(id === undefined) {
@@ -26,15 +28,30 @@ const App = () => {
     }
   }
 
-  const handleModal = (data) => {
+  const handleModal = (id) => {
     setModal(!modal)
-    setModalData(data);
+    setModalPhotoID(id);
   }
   
   return (
     <div className="App">
-      <HomeRoute handleModal={handleModal} favicon={favicon} handleFavicon={handleFavicon} conutFavicon={conutFavicon} handleCountFavicon={handleCountFavicon} />
-      {modal && <PhotoDetailsModal handleModal={handleModal} modalData={modalData} handleFavicon={handleFavicon} />}
+      <HomeRoute 
+        photos={photos} 
+        handleModal={handleModal} 
+        favicon={favicon} 
+        handleFavicon={handleFavicon} 
+        conutFavicon={conutFavicon} 
+        handleCountFavicon={handleCountFavicon} 
+      />
+      {modal && 
+        <PhotoDetailsModal
+          photos={photos} 
+          handleModal={handleModal}
+          photoID={modalPhotoID} 
+          handleFavicon={handleFavicon}
+          handleCountFavicon={handleCountFavicon}
+          favicon={favicon}
+      />}
     </div>
   )
 }
