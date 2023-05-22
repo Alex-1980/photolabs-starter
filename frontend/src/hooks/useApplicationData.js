@@ -1,6 +1,8 @@
 import { useState } from 'react';
 
 const useApplicationData = () => {
+  const [topics, setTopics] = useState([]);
+  const [photos, setPhotos] = useState([]);
   const [favicon, setFavicon] = useState({});
   const [conutFavicon, setCountFavicon] = useState(0);
   const [modal, setModal] = useState(false);
@@ -27,7 +29,7 @@ const useApplicationData = () => {
     setModalPhotoID(id);
   }
 
-  return {modal, favicon, conutFavicon, handleFavicon, handleCountFavicon, handleModal, modalPhotoID}
+  return {topics, setTopics, photos, setPhotos, modal, favicon, conutFavicon, handleFavicon, handleCountFavicon, handleModal, modalPhotoID}
 }
 
 export default useApplicationData;

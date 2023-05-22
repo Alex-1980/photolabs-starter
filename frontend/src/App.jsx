@@ -1,15 +1,29 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import axios from 'axios';
 
 import HomeRoute from './routes/HomeRoute';
 import PhotoDetailsModal from './routes/PhotoDetailsModal'
 import useApplicationData from './hooks/useApplicationData';
 
-import photos from './mocks/photos.json'
-import topics from './mocks/topics.json'
+// import photos from './mocks/photos.json'
+// import topics from './mocks/topics.json'
 
-// Note: Rendering a single component to build components in isolation
 const App = () => {
-  const {modal, favicon, conutFavicon, handleFavicon, handleCountFavicon, handleModal, modalPhotoID} = useApplicationData()
+  const {topics, setTopics, photos, setPhotos, modal, favicon, conutFavicon, handleFavicon, handleCountFavicon, handleModal, modalPhotoID} = useApplicationData()
+
+  useEffect(() => {
+    axios.get('http://localhost:8001/api/topics')
+      .then(res => {
+        setTopics(res.data)
+      })
+  },[])
+
+  useEffect(() => {
+    axios.get('http://localhost:8001/api/photos')
+      .then(res => {
+        setPhotos(res.data)
+      })
+  },[])
   
   return (
     <div className="App">
