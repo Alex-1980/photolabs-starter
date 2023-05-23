@@ -1,7 +1,26 @@
 # react-photolabs
-The PhotoLabs project for the Web Development React course programming.
+The PhotoLabs is a full stack application using React to show photos and like them.
 
-# Photolabs
+# Photolabs Final Product
+
+!["screenshot description"](#)
+!["screenshot description"](#)
+
+## Dependencies
+
+- React
+- React-dom
+- React-scripts
+- Web-vitals
+- Axios
+- Node.js
+- Express
+- Cors
+- Dotenv
+- Helmet
+- PG
+- Socket.io
+- WS
 
 ## Setup
 
