@@ -28,9 +28,10 @@ const HomeRoute = (props) => {
 
   return (
     <div className="home-route">
-      <TopNavigation topics={props.topics} conutFavicon={props.conutFavicon} />
+      <TopNavigation topics={props.topics} handleTopic={props.handleTopic} conutFavicon={props.conutFavicon} />
       <PhotoList 
         photos={props.photos}
+        photosByCatId={props.photosByCatId}
         favicon={props.favicon}
         handleFavicon={props.handleFavicon}
         handleCountFavicon={props.handleCountFavicon}

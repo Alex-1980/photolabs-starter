@@ -36,7 +36,7 @@ export const PhotoDetailsModal = (props) => {
 
           <img className='photo-details-modal--image' src={details.urls.regular} />
           <div className='user-info'>
-            <img className='photo-list--user-profile' src={details.user.name}/>
+            <img className='photo-list--user-profile' src={details.user.profile}/>
             <div className='photo-list--user-details'>
               <div className='photo-list--user-info'>
                 {details.user.username}

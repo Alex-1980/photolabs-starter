@@ -5,11 +5,10 @@ import HomeRoute from './routes/HomeRoute';
 import PhotoDetailsModal from './routes/PhotoDetailsModal'
 import useApplicationData from './hooks/useApplicationData';
 
-// import photos from './mocks/photos.json'
-// import topics from './mocks/topics.json'
-
 const App = () => {
-  const {topics, setTopics, photos, setPhotos, modal, favicon, conutFavicon, handleFavicon, handleCountFavicon, handleModal, modalPhotoID} = useApplicationData()
+  const {topics, setTopics, photos, setPhotos, photosByCatId, setPhotosByCatId, modal, favicon, conutFavicon, handleFavicon, handleCountFavicon, handleModal, modalPhotoID} = useApplicationData()
+
+  console.log("photosByCatId", photosByCatId)
 
   useEffect(() => {
     axios.get('http://localhost:8001/api/topics')
@@ -24,12 +23,23 @@ const App = () => {
         setPhotos(res.data)
       })
   },[])
-  
+
+  function handleTopic (topicId) {
+    axios.get(`http://localhost:8001/api/topics/photos/${topicId}`)
+      .then(res => {
+        console.log("data", res.data)
+        console.log("topicId", topicId)
+        setPhotosByCatId(res.data)
+      })
+  }
+
   return (
     <div className="App">
       <HomeRoute 
         photos={photos}
         topics={topics}
+        photosByCatId={photosByCatId}
+        handleTopic={handleTopic}
         handleModal={handleModal}
         favicon={favicon}
         handleFavicon={handleFavicon}
