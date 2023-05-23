@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useState} from 'react';
 
 const useApplicationData = () => {
   const [topics, setTopics] = useState([]);
@@ -29,7 +29,6 @@ const useApplicationData = () => {
     setModal(!modal)
     setModalPhotoID(id);
   }
-
 
   return {topics, setTopics, photos, setPhotos, photosByCatId, setPhotosByCatId,  modal, favicon, conutFavicon, handleFavicon, handleCountFavicon, handleModal, modalPhotoID}
 }

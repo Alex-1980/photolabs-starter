@@ -8,8 +8,6 @@ import useApplicationData from './hooks/useApplicationData';
 const App = () => {
   const {topics, setTopics, photos, setPhotos, photosByCatId, setPhotosByCatId, modal, favicon, conutFavicon, handleFavicon, handleCountFavicon, handleModal, modalPhotoID} = useApplicationData()
 
-  console.log("photosByCatId", photosByCatId)
-
   useEffect(() => {
     axios.get('http://localhost:8001/api/topics')
       .then(res => {
@@ -27,8 +25,6 @@ const App = () => {
   function handleTopic (topicId) {
     axios.get(`http://localhost:8001/api/topics/photos/${topicId}`)
       .then(res => {
-        console.log("data", res.data)
-        console.log("topicId", topicId)
         setPhotosByCatId(res.data)
       })
   }

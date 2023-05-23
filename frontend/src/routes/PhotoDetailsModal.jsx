@@ -5,8 +5,7 @@ import PhotoFavButton from '../components/PhotoFavButton';
 import PhotoList from '../components/PhotoList';
 
 export const PhotoDetailsModal = (props) => {
-  // console.log(props)
-  const {handleModal, photos, photoID, favicon, handleFavicon, handleCountFavicon } = props
+  const {photos, photoID, favicon, handleFavicon, handleCountFavicon } = props
 
   const details = photos.find(el => el.id === photoID)
 
@@ -27,13 +26,11 @@ export const PhotoDetailsModal = (props) => {
       </button>
       <div className='modal-main'>
         <div className='modal-image'>
-
           <PhotoFavButton
             favicon={favicon[photoID]} 
             handleFavicon={() => handleFavicon(photoID)} 
             handleCountFavicon={() => handleCountFavicon(favicon[photoID])}
           />
-
           <img className='photo-details-modal--image' src={details.urls.regular} />
           <div className='user-info'>
             <img className='photo-list--user-profile' src={details.user.profile}/>
