@@ -3,8 +3,11 @@ The PhotoLabs is a full stack application using React to show photos and like th
 
 # Photolabs Final Product
 
-!["screenshot description"](#)
-!["screenshot description"](#)
+!["screenshot of Main page"](https://github.com/Alex-1980/photolabs-starter/blob/master/docs/main-page.png?raw=true)
+!["screenshot of Liked photo"](https://github.com/Alex-1980/photolabs-starter/blob/master/docs/liked-photo.png?raw=true)
+!["screenshot of Photo with topic"](https://github.com/Alex-1980/photolabs-starter/blob/master/docs/photo%20-with-topic.png?raw=true)
+!["screenshot of Modal page"](https://github.com/Alex-1980/photolabs-starter/blob/master/docs/modal-page.png?raw=true)
+!["screenshot of Related photos in modal"](https://github.com/Alex-1980/photolabs-starter/blob/master/docs/related-photos-in-modal.png?raw=true)
 
 ## Dependencies
 
